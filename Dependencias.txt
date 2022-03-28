@@ -1,0 +1,3 @@
+tslint: npm i tslint --save-dev
+
+typescript: npm i typescript --save-dev
