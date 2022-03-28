@@ -11,3 +11,5 @@ dotenv: npm i dotenv
 express-typescript: npm i --save-dev @types/express
 
 Modo Observador: tsc --watch
+
+cors-typescript: npm i --save-dev @types/cors
