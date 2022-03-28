@@ -1,3 +1,13 @@
 tslint: npm i tslint --save-dev
 
 typescript: npm i typescript --save-dev
+
+express: npm i express
+
+cors: npm i cors
+
+dotenv: npm i dotenv
+
+express-typescript: npm i --save-dev @types/express
+
+Modo Observador: tsc --watch
