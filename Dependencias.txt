@@ -13,3 +13,7 @@ express-typescript: npm i --save-dev @types/express
 Modo Observador: tsc --watch
 
 cors-typescript: npm i --save-dev @types/cors
+
+sequelize: npm install --save sequelize
+
+sql: npm install --save mysql2
