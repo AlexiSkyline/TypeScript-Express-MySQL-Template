@@ -7,12 +7,15 @@ export const getUsuarios = async ( req: Request, res: Response ) => {
     res.json({ usuarios });
 }
 
-export const getUsuario = ( req: Request, res: Response ) => {
+export const getUsuario = async ( req: Request, res: Response ) => {
     const { id } = req.params;
+    const usuario = await Usuario.findByPk( id );
 
-    res.json({
-        msg: 'getUsuario'
-    });
+    if( !usuario ) {
+        return res.status(404).json({ msg: `Usuario con id ${ id } no encontrado` });
+    }
+
+    res.json( usuario );
 }
 
 export const postUsuario = ( req: Request, res: Response ) => {
