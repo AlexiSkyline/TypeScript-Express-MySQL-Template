@@ -27,7 +27,7 @@ export const postUsuario = async( req: Request, res: Response ) => {
             return res.status(400).json({ msg: 'El email ya existe' });
         }
         
-        const usuario = new Usuario( body );
+        const usuario = Usuario.build( body );
         await usuario.save();
 
         res.json( usuario );
@@ -60,11 +60,16 @@ export const putUsuario = async( req: Request, res: Response ) => {
     }
 }
 
-export const deleteUsuario = ( req: Request, res: Response ) => {
-    const { id }   = req.params;
+export const deleteUsuario = async ( req: Request, res: Response ) => {
+    const { id } = req.params;
 
-    res.json({
-        msg: 'DeleteUsuario',
-        id
-    });
+    const usuario = await Usuario.findByPk( id );
+    if( !usuario ) {
+        return res.status(404).json({ msg: `Usuario con id ${ id } no encontrado` });
+    }
+
+    //await usuario.destroy(); // * Elimininar el registro fisicamente
+    await usuario.update({ estado: false }); // * Elimininar el registro logicamente
+
+    res.json( usuario );
 }
