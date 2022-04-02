@@ -1,3 +1,7 @@
+Paso 1: tsc --init
+Paso 2: modificar el archivo de tsconfig.json
+Paso 3: crear el archivo tslint.json "./node_modules/.bin/tslint --init"
+
 tslint: npm i tslint --save-dev
 
 typescript: npm i typescript --save-dev
